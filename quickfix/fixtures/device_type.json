@@ -1,0 +1,5 @@
+[
+  {"device_type": "Smartphone", "description": "Mobile phone", "average_repair_hours": 2},
+  {"device_type": "Laptop", "description": "Personal laptop", "average_repair_hours": 4},
+  {"device_type": "Tablet", "description": "Tablet device", "average_repair_hours": 3}
+]

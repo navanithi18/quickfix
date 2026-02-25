@@ -1,33 +1,7 @@
-### quickfix
+site_config.json – Stores configuration specific to a single site (like database name, admin password, etc.). If this file is misconfigured, that particular site may fail to connect to its database.
 
-this is a new app called quickfix used in the mobile repair shoop
+common_site_config.json – Stores global bench-level settings shared across all sites (like db_host, Redis settings, background worker configs). If you accidentally expose this file publicly with secrets (DB password, Redis credentials), your entire bench and all sites can be compromised.
 
-### Installation
+hooks.py – Defines how the app integrates with Frappe (events, scheduled tasks, overrides, assets). If hooks are wrong, features like background jobs or custom events may not trigger.
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
-
-```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch develop
-bench install-app quickfix
-```
-
-### Contributing
-
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
-
-```bash
-cd apps/quickfix
-pre-commit install
-```
-
-Pre-commit is configured to use the following tools for checking and formatting your code:
-
-- ruff
-- eslint
-- prettier
-- pyupgrade
-
-### License
-
-mit
+desktop.py (inside config folder) – Controls how your module appears in the Frappe Desk UI. If misconfigured, your module tile may not show on the home page.
