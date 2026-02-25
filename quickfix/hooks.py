@@ -248,5 +248,39 @@ app_license = "mit"
 # ignore_translatable_strings_from = []
 
 fixtures = [
-    {"dt": "Device Type", "filters": []}
+
+    
+    {
+        "doctype": "Device Type",
+        "filters": [
+            ["device_type", "in", ["Smartphone", "Laptop", "Tablet"]]
+        ]
+    },
+
+    
+    {
+        "doctype": "Role",
+        "filters": [
+            ["name", "in", [
+                "QF Service Staff",
+                "QF Technician",
+                "QF Manager"
+            ]]
+        ]
+    },
+
+    
+    {
+        "doctype": "Custom DocPerm",
+        "filters": [
+            ["parent", "in", [
+                "Device Type",
+                "Technician",
+                "Spare Part",
+                "Job Card",
+                "Service Invoice"
+            ]]
+        ]
+    }
+
 ]
