@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:",
- "creation": "2026-02-25 11:24:36.254031",
+ "creation": "2026-02-26 16:13:08.826862",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -13,7 +13,8 @@
   "labour_charge",
   "parts_total",
   "total_amount",
-  "payment_status"
+  "payment_status",
+  "anonymous"
  ],
  "fields": [
   {
@@ -68,12 +69,19 @@
    "fieldtype": "Select",
    "label": "Invoice Number",
    "options": "INV-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "anonymous",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "anonymous",
+   "options": "Job Card"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-02-25 12:25:56.491329",
+ "modified": "2026-02-26 16:13:08.826862",
  "modified_by": "Administrator",
  "module": "Service Center",
  "name": "Service Invoice",

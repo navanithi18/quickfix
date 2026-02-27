@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "TECH-.####",
- "creation": "2026-02-24 14:24:48.001087",
+ "creation": "2026-02-26 16:09:03.152516",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -15,7 +15,9 @@
   "photo",
   "joining_date",
   "user",
-  "notes"
+  "notes",
+  "amended_from",
+  "anonymous"
  ],
  "fields": [
   {
@@ -78,12 +80,29 @@
    "fieldname": "notes",
    "fieldtype": "Text",
    "label": "Notes"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Technician",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "anonymous",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "anonymous",
+   "options": "Job Card"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-02-25 10:21:59.287741",
+ "modified": "2026-02-26 16:09:03.152516",
  "modified_by": "Administrator",
  "module": "Service Center",
  "name": "Technician",

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "naming_series:",
+ "autoname": "JC-.YYYY.-.##### ",
  "creation": "2026-02-24 16:21:55.290861",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -30,7 +30,8 @@
   "delivery_date",
   "remarks",
   "status",
-  "naming_series"
+  "section_break_wmmi",
+  "table_bgvh"
  ],
  "fields": [
   {
@@ -150,11 +151,11 @@
    "read_only": 1
   },
   {
-   "allow_on_submit": 1,
+   "default": "Unpaid",
    "fieldname": "payment_status",
    "fieldtype": "Select",
    "label": "Payment Status",
-   "options": "Unpaid\nPaid"
+   "options": "Unpaid\nPaidUnpaid\nPaid"
   },
   {
    "allow_on_submit": 1,
@@ -168,7 +169,6 @@
    "label": "Remarks"
   },
   {
-   "default": "Draft",
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
@@ -176,22 +176,24 @@
    "options": "Draft\nPending Diagnosis\nAwaiting Customer Approval\nIn Repair\nReady for Delivery\nDelivered\nCancelled"
   },
   {
-   "default": "JC-.YYYY.-.#####",
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "hidden": 1,
-   "label": "Naming Series",
-   "options": "JC-.YYYY.-.#####"
+   "fieldname": "section_break_wmmi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "table_bgvh",
+   "fieldtype": "Table",
+   "options": "Part Usage Entry"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-02-25 14:33:08.308695",
+ "modified": "2026-02-26 15:40:00.633976",
  "modified_by": "Administrator",
  "module": "Service Center",
  "name": "Job Card",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
