@@ -1,8 +1,8 @@
 app_name = "quickfix"
-app_title = "QuickFix"
-app_publisher = "Navanithi"
-app_description = "new app"
-app_email = "navanithi4737@gmail.com"
+app_title = "quickfix"
+app_publisher = "navanithi"
+app_description = "this is a new app called quickfix used in the mobile repair shoop"
+app_email = "navanithi1234@gmail.com"
 app_license = "mit"
 
 # Apps
@@ -15,7 +15,7 @@ app_license = "mit"
 # 	{
 # 		"name": "quickfix",
 # 		"logo": "/assets/quickfix/logo.png",
-# 		"title": "QuickFix",
+# 		"title": "quickfix",
 # 		"route": "/quickfix",
 # 		"has_permission": "quickfix.api.permission.has_app_permission"
 # 	}
@@ -247,3 +247,44 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+fixtures = [
+
+    
+    {
+        "doctype": "Device Type",
+        "filters": [
+            ["device_type", "in", ["Smartphone", "Laptop", "Tablet"]]
+        ]
+    },
+
+    
+    {
+        "doctype": "Role",
+        "filters": [
+            ["name", "in", [
+                "QF Service Staff",
+                "QF Technician",
+                "QF Manager"
+            ]]
+        ]
+    },
+
+    
+    {
+        "doctype": "Custom DocPerm",
+        "filters": [
+            ["parent", "in", [
+                "Device Type",
+                "Technician",
+                "Spare Part",
+                "Job Card",
+                "Service Invoice"
+            ]]
+        ]
+    }
+
+]
+
+override_doctype_class = {
+    "Job Card": "quickfix.overrides.custom_job_card.CustomJobCard"
+}
