@@ -288,3 +288,10 @@ fixtures = [
 override_doctype_class = {
     "Job Card": "quickfix.overrides.custom_job_card.CustomJobCard"
 }
+doc_events = {
+    "*": {
+        "on_update": "quickfix.audit.log_change",
+        "on_submit": "quickfix.audit.log_change",
+        "on_cancel": "quickfix.audit.log_change"
+    }
+}
