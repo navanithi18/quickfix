@@ -26,7 +26,7 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/quickfix/css/quickfix.css"
-app_include_js = "/assets/quickfix/js/quickfix.js"
+# app_include_js = "/assets/quickfix/js/quickfix.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/quickfix/css/quickfix.css"
@@ -82,13 +82,14 @@ app_include_js = "/assets/quickfix/js/quickfix.js"
 # Installation
 # ------------
 
-after_install = "quickfix.install.after_install"
-extend_bootinfo = "quickfix.install.extend_bootinfo"
+# before_install = "quickfix.install.before_install"
+# after_install = "quickfix.install.after_install"
 
 # Uninstallation
 # ------------
 
-before_uninstall = "quickfix.uninstall.before_uninstall"
+# before_uninstall = "quickfix.uninstall.before_uninstall"
+# after_uninstall = "quickfix.uninstall.after_uninstall"
 
 # Integration Setup
 # ------------------
@@ -283,26 +284,3 @@ fixtures = [
     }
 
 ]
-
-override_doctype_class = {
-    "Job Card": "quickfix.overrides.custom_job_card.CustomJobCard"
-}
-doc_events = {
-    "*": {
-        "on_update": "quickfix.audit.log_change",
-        "on_submit": "quickfix.audit.log_change",
-        "on_cancel": "quickfix.audit.log_change"
-    }
-}
-
-on_session_creation = "quickfix.audit.log_login"
-
-on_logout = "quickfix.audit.log_logout"
-
-doctype_list_js = {
-    "Job Card": "public/js/job_card_list.js"
-}
-
-doctype_js = {
-    "Job Card": "public/js/job_card_hide_phone.js"
-}
