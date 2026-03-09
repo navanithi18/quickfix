@@ -60,14 +60,4 @@ def get_job_cards_safe():
     return job_cards
 
 
-    
-@frappe.whitelist()
-def reject_job(job_card, reason):
-
-    doc = frappe.get_doc("Job Card", job_card)
-
-    doc.db_set("rejection_reason", reason)
-
-    doc.cancel()
-
-    frappe.msgprint("Job Cancelled Successfully")
+    #
