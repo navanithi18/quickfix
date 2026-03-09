@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "JC-.YYYY.-.##### ",
+ "autoname": "JC-.YYYY.-.####",
  "creation": "2026-02-24 16:21:55.290861",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -31,7 +31,8 @@
   "remarks",
   "status",
   "section_break_wmmi",
-  "table_bgvh"
+  "table_bgvh",
+  "rejection_reason"
  ],
  "fields": [
   {
@@ -147,6 +148,7 @@
   {
    "fieldname": "final_amount",
    "fieldtype": "Currency",
+   "in_list_view": 1,
    "label": "Final Amount",
    "read_only": 1
   },
@@ -173,7 +175,8 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Draft\nPending Diagnosis\nAwaiting Customer Approval\nIn Repair\nReady for Delivery\nDelivered\nCancelled"
+   "options": "Draft\nPending Diagnosis\nAwaiting Customer Approval\nIn Repair\nReady for Delivery\nDelivered\nCancelled\na",
+   "search_index": 1
   },
   {
    "fieldname": "section_break_wmmi",
@@ -183,13 +186,20 @@
    "fieldname": "table_bgvh",
    "fieldtype": "Table",
    "options": "Part Usage Entry"
+  },
+  {
+   "fieldname": "rejection_reason",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "Rejection Reason",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-02-26 15:40:00.633976",
+ "modified": "2026-03-06 12:48:38.609049",
  "modified_by": "Administrator",
  "module": "Service Center",
  "name": "Job Card",
