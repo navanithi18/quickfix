@@ -1,0 +1,16 @@
+[
+ {
+  "align": "Left",
+  "content": "<div style='display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #1f3b5b;padding-bottom:8px;'><div><div style='font-size:22px;font-weight:700;color:#1f3b5b;'>QuickFix Service Center</div><div style='font-size:12px;color:#666;'>Mobile, Laptop & Tablet Repair</div></div><div style='font-size:12px;color:#444;text-align:right;'><div>{{ _('Phone') }}: +91-90000-00000</div><div>{{ _('Email') }}: support@quickfix.example</div></div></div>",
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Letter Head",
+  "footer": "<div style='border-top:1px solid #ccc;padding-top:6px;font-size:11px;color:#666;text-align:center;'>{{ _('Thank you for choosing QuickFix') }}</div>",
+  "footer_align": "Left",
+  "footer_source": "HTML",
+  "is_default": 1,
+  "letter_head_name": "QuickFix Letter Head",
+  "name": "QuickFix Letter Head",
+  "source": "HTML"
+ }
+]
