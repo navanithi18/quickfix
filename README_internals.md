@@ -396,7 +396,29 @@ K2-In Frappe, you can disable the scheduler for a specific site by setting "disa
 
 If the scheduler or worker process is down, any scheduled jobs that were queued during that downtime do not get lost. Once the worker restarts, the queued jobs are picked up from Redis and executed in order. This ensures that background tasks are eventually processed even if there is a temporary outage, maintaining consistency and reliability in task execution.
 
+K3-We first fetch all Job Cards and then collect the unique Technician IDs. Next, we fetch all corresponding Technicians in a single query. Finally, we map each Technician to its Job Card using a dictionary. This reduces the database queries to just two: one for Job Cards and one for Technicians.
 
+# Fetch all job cards
+job_cards = frappe.get_all("Job Card", fields=["name", "assigned_technician"])
+
+# Collect unique technician IDs
+technician_ids = list({jc.assigned_technician for jc in job_cards})
+
+# Fetch all technicians in a single query
+technicians = frappe.get_all(
+    "Technician",
+    filters={"name": ["in", technician_ids]},
+    fields=["name", "technician_name", "phone"]
+)
+
+# Create a mapping from technician ID to technician info
+technician_map = {tech.name: tech for tech in technicians}
+
+# Use the mapping to print technician info for each job card
+for jc in job_cards:
+    tech = technician_map.get(jc.assigned_technician)
+    if tech:
+        print(tech.technician_name, tech.phone)
 L1-Frappe supports two main authentication methods: session cookie authentication and token-based authentication. Session cookie auth works by logging in a user through the browser, which creates a session on the server and stores a session cookie in the browser. Subsequent requests automatically include this cookie, allowing the server to identify the logged-in user and enforce permissions. This method is ideal for browser-based interactions, such as Desk or Portal usage, because it integrates with CSRF protection and automatically manages the user session.
 
 Token-based auth, on the other hand, uses an API key and secret to authenticate requests without relying on a browser session. Each request includes the token in headers, and the server validates it to identify the user or system making the call. This approach is suitable for server-to-server integrations, background scripts, or external applications, where maintaining a browser session is impractical. Token auth is stateless, more secure for automated processes

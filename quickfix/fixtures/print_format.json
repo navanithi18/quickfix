@@ -1,0 +1,21 @@
+[
+ {
+  "align_labels_right": 0,
+  "custom_format": 1,
+  "default_print_language": "",
+  "disabled": 0,
+  "doc_type": "Job Card",
+  "docstatus": 0,
+  "doctype": "Print Format",
+  "format_data": "[]",
+  "html": "{% include 'quickfix/templates/print_formats/job_card_receipt.html' %}",
+  "module": "Service Center",
+  "name": "Job Card Receipt",
+  "print_format_builder": 0,
+  "print_format_for": "DocType",
+  "print_format_type": "Jinja",
+  "raw_printing": 0,
+  "show_section_headings": 0,
+  "standard": "No"
+ }
+]

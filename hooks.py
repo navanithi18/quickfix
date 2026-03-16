@@ -26,7 +26,7 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/quickfix/css/quickfix.css"
-# app_include_js = "/assets/quickfix/js/quickfix.js"
+ app_include_js = "/assets/quickfix/js/quickfix.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/quickfix/css/quickfix.css"
@@ -294,4 +294,35 @@ doc_events = {
         "on_submit": "quickfix.audit.log_change",
         "on_cancel": "quickfix.audit.log_change"
     }
+}
+
+
+jinja = {
+    "methods": [
+        "quickfix.utils.get_shop_name",
+        "quickfix.utils.get_job_card_qr_base64"
+    ]
+}
+
+after_install = "quickfix.install.after_install"
+before_uninstall = "quickfix.uninstall.before_uninstall"
+extend_bootinfo = "quickfix.install.extend_bootinfo"
+
+# -------------------------
+# JINJA HOOKS
+# -------------------------
+
+jinja = {
+    "methods": [
+        "quickfix.jinja_methods.get_shop_name"
+    ],
+    "filters": [
+        "quickfix.jinja_methods.format_job_id"
+    ]
+}
+
+scheduler_events = {
+    "daily": [
+        "quickfix.low_stock.check_low_stock"
+    ]
 }
