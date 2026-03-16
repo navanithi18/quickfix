@@ -47,7 +47,7 @@ class JobCard(Document):
             ) or 0
 
         self.final_amount = (self.parts_total or 0) + (self.labour_charge or 0)
-
+       
     def before_submit(self):
 
         if self.status != "Ready for Delivery":
