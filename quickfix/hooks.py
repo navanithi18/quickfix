@@ -295,3 +295,7 @@ doc_events = {
         "on_cancel": "quickfix.audit.log_change"
     }
 }
+
+override_whitelisted_methods = {
+    "frappe.client.get_count": "quickfix.api.custom_get_count"
+}

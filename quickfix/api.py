@@ -64,10 +64,6 @@ def get_job_cards_safe():
     return job_cards
 
 
-    #
-
-
-
 # Part B - frappe.qb Query Builder
 @frappe.whitelist()
 def get_overdue_jobs():
@@ -122,3 +118,17 @@ def transfer_job(from_tech, to_tech):
 
         # re-raise exception
         raise
+
+@frappe.whitelist()
+def custom_get_count(doctype, filters=None, debug=False, cache=False):
+    # Log the request to Audit Log
+    frappe.get_doc({
+        "doctype": "Audit Log",
+        "doctype_name": doctype,
+        "action": "count_queried",
+        "user": frappe.session.user
+    }).insert(ignore_permissions=True)
+    
+    # Call original behaviour
+    from frappe.client import get_count
+    return get_count(doctype, filters, debug, cache)
