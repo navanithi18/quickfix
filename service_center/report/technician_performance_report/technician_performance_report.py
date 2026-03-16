@@ -15,8 +15,6 @@ def execute(filters=None):
     return columns, data, None, chart, summary
 
 
-<<<<<<< HEAD
-=======
 # -----------------------------
 # Prepared Report Background Job
 # -----------------------------
@@ -34,7 +32,6 @@ def trigger_prepared_report(filters=None):
     )
 
 
->>>>>>> feature/custom-report-i5
 def get_columns(filters):
 
     cols = [
@@ -109,14 +106,10 @@ def get_data(filters):
         }
 
         if filters and filters.get("from_date") and filters.get("to_date"):
-<<<<<<< HEAD
-            job_filters["creation"] = ["between", [filters.get("from_date"), filters.get("to_date")]]
-=======
             job_filters["creation"] = [
                 "between",
                 [filters.get("from_date"), filters.get("to_date")]
             ]
->>>>>>> feature/custom-report-i5
 
         if filters and filters.get("technician"):
             job_filters["assigned_technician"] = filters.get("technician")
@@ -211,11 +204,7 @@ def get_report_summary(data):
     total_jobs = sum([d["total_jobs"] for d in data])
     total_revenue = sum([d["revenue"] for d in data])
 
-<<<<<<< HEAD
-    best_technician = None
-=======
     best_technician = "N/A"
->>>>>>> feature/custom-report-i5
     best_completed = 0
 
     for d in data:
@@ -241,8 +230,4 @@ def get_report_summary(data):
         }
     ]
 
-<<<<<<< HEAD
     return summary
-=======
-    return summary
->>>>>>> feature/custom-report-i5
